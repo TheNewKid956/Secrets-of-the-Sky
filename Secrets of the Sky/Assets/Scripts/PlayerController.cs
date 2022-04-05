@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     CapsuleCollider2D mainCollider;
     Transform t;
 
+    //Movement Keys
+    private string[] jumpKeys = {"W", "Space", "UpArrow" };
+
     // Use this for initialization
     void Start()
     {
@@ -48,6 +51,7 @@ public class PlayerController : MonoBehaviour
         if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded ||
 Mathf.Abs(r2d.velocity.x) > 0.01f))
         {
+            print(KeyCode.A);
             if (Input.GetKey(KeyCode.A))
             {
                 moveDirection = -1;
@@ -84,15 +88,13 @@ cameraPos.z);
     {
         // Get information from player's collider
         Bounds colliderBounds = mainCollider.bounds;
-        float colliderRadius = mainCollider.size.x * 0.4f *
-Mathf.Abs(transform.localScale.x);
+        float colliderRadius = mainCollider.size.x * 0.4f * Mathf.Abs(transform.localScale.x);
+
         // Check if player is grounded
-        Vector3 groundCheckPos = colliderBounds.min + new
-Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
+        Vector3 groundCheckPos = colliderBounds.min + new Vector3(colliderBounds.size.x * 0.5f, colliderRadius * 0.9f, 0);
 
         //Check if any of the overlapping colliders are not player collider, if so,set isGrounded to true
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos,
-colliderRadius);
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(groundCheckPos, colliderRadius);
         isGrounded = false;
         if (colliders.Length > 0)
         {
