@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
     Transform t;
 
     //Movement Keys
-    private string[] jumpKeys = {"W", "Space", "UpArrow" };
+    private KeyCode[] jumpKeys = { KeyCode.W, KeyCode.Space, KeyCode.UpArrow };
+    private KeyCode[] strafeKeys = { KeyCode.A, KeyCode.LeftArrow, KeyCode.D, KeyCode.RightArrow };
 
     // Use this for initialization
     void Start()
@@ -48,39 +49,43 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         // Movement controls
-        if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D)) && (isGrounded ||
-Mathf.Abs(r2d.velocity.x) > 0.01f))
+        for (int i = 0; i < strafeKeys.Length; i++)
         {
-            print(KeyCode.A);
-            if (Input.GetKey(KeyCode.A))
+            if (Input.GetKey(strafeKeys[i]) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
             {
-                moveDirection = -1;
+                if (Input.GetKeyDown(strafeKeys[0]) || Input.GetKeyDown(strafeKeys[1]))
+                {
+                    moveDirection = -1;
+                }
+                else if(Input.GetKeyDown(strafeKeys[2]) || Input.GetKeyDown(strafeKeys[3]))
+                {
+                    moveDirection = 1;
+                }
             }
             else
             {
-                moveDirection = 1;
-            }
-        }
-        else
-        {
-            if (isGrounded || r2d.velocity.magnitude < 0.01f)
-            {
-                moveDirection = 0;
+                if (isGrounded || r2d.velocity.magnitude < 0.01f)
+                {
+                    moveDirection = 0;
+                }
             }
         }
 
+
         // Jumping
-        if (Input.GetKeyDown(KeyCode.W) && isGrounded)
+        for (int i = 0; i < jumpKeys.Length; i++)
         {
-            // Apply movement velocity in the y direction
-            r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
+            {
+                // Apply movement velocity in the y direction
+                r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+            }
         }
 
         // Assigned Camera follows player
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y,
-cameraPos.z);
+            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
         }
     }
 
