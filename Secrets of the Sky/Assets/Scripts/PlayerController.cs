@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     public Camera mainCamera;
 
-    float moveDirection = 0; // 0 is still, -1 is left, 1 is right
+    //float moveDirection = 0; // 0 is still, -1 is left, 1 is right
     bool isGrounded = false;
     Vector3 cameraPos;
 
@@ -51,23 +51,25 @@ public class PlayerController : MonoBehaviour
         // Movement controls
         for (int i = 0; i < strafeKeys.Length; i++)
         {
-            if (Input.GetKey(strafeKeys[i]) && (isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+            if (Input.GetKey(strafeKeys[i]) && (isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
             {
-                if (Input.GetKeyDown(strafeKeys[0]) || Input.GetKeyDown(strafeKeys[1]))
+                if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
-                    moveDirection = -1;
+                    //print(strafeKeys[i]);
+                    r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
+                    //print(moveDirection);
                 }
-                else if(Input.GetKeyDown(strafeKeys[2]) || Input.GetKeyDown(strafeKeys[3]))
+                else if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
-                    moveDirection = 1;
+                    //print(strafeKeys[i]);
+                    r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
+                    //print(moveDirection);
                 }
             }
-            else
+            else if (Input.GetKeyUp(strafeKeys[i]))
             {
-                if (isGrounded || r2d.velocity.magnitude < 0.01f)
-                {
-                    moveDirection = 0;
-                }
+                print("Key Released");
+                r2d.velocity = new Vector2(0 * maxSpeed, r2d.velocity.y);
             }
         }
 
@@ -113,6 +115,6 @@ public class PlayerController : MonoBehaviour
             }
         }
         // Apply movement velocity in the x direction
-        r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+        //r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
     }
 }
