@@ -55,20 +55,15 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
-                    //print(strafeKeys[i]);
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
-                    //print(moveDirection);
                 }
                 else if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
-                    //print(strafeKeys[i]);
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
-                    //print(moveDirection);
                 }
             }
             else if (Input.GetKeyUp(strafeKeys[i]))
             {
-                print("Key Released");
                 r2d.velocity = new Vector2(0 * maxSpeed, r2d.velocity.y);
             }
         }
