@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 
     // Object components
     Rigidbody2D r2d;
+    SpriteRenderer spriteRenderer;
     CapsuleCollider2D mainCollider;
     Transform t;
 
@@ -30,7 +31,9 @@ public class PlayerController : MonoBehaviour
         // initialize object component variables
         t = transform;
         r2d = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
         mainCollider = GetComponent<CapsuleCollider2D>();
+
 
         // If freezeRotation is enabled, the rotation in Z is not modified by the physics simulation.
         r2d.freezeRotation = true;
@@ -55,10 +58,12 @@ public class PlayerController : MonoBehaviour
             {
                 if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
+                    spriteRenderer.flipX = true;
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
                 }
                 else if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
+                    spriteRenderer.flipX = false;
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
                 }
             }
