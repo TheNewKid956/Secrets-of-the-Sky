@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
+    public float glideGravityScale = 0.25f;
 
     public Camera mainCamera;
 
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
     SpriteRenderer spriteRenderer;
     CapsuleCollider2D mainCollider;
     Transform t;
+    Animator animator;
 
     //Movement Keys
     private KeyCode[] jumpKeys = { KeyCode.W, KeyCode.Space, KeyCode.UpArrow };
@@ -33,6 +35,7 @@ public class PlayerController : MonoBehaviour
         r2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCollider = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
 
 
         // If freezeRotation is enabled, the rotation in Z is not modified by the physics simulation.
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
         r2d.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         r2d.gravityScale = gravityScale;
+
         if (mainCamera)
         {
             cameraPos = mainCamera.transform.position;
@@ -60,16 +64,19 @@ public class PlayerController : MonoBehaviour
                 {
                     spriteRenderer.flipX = true;
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
+                    animator.SetInteger("AnimState", 1);
                 }
-                else if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
+                if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
                     spriteRenderer.flipX = false;
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
+                    animator.SetInteger("AnimState", 1);
                 }
             }
             else if (Input.GetKeyUp(strafeKeys[i]))
             {
                 r2d.velocity = new Vector2(0 * maxSpeed, r2d.velocity.y);
+                animator.SetInteger("AnimState", 0);
             }
         }
 
@@ -77,10 +84,23 @@ public class PlayerController : MonoBehaviour
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
+            //if (Input.GetKey(jumpKeys[i]) && isGrounded == false)
+            //{
+                //print("Trying to glide");
+                //r2d.gravityScale = glideGravityScale;
+            //}
             if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
             {
                 // Apply movement velocity in the y direction
                 r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
+                r2d.gravityScale = gravityScale;
+                animator.SetInteger("AnimState", 2);
+                animator.SetBool("isGrounded", isGrounded);
+            }
+            else if (Input.GetKeyUp(jumpKeys[i]) && (isGrounded || isGrounded == false))
+            {
+
+                r2d.gravityScale = gravityScale;
             }
         }
 
