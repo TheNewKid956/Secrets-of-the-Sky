@@ -139,7 +139,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.0040386915
   m_TransitionOffset: 0.101773836
   m_ExitTime: 0.9960916
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -155,6 +155,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 6
     m_ConditionEvent: AnimState
     m_EventTreshold: 1
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGrounded
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -8023848654736973697}
   m_Solo: 0
@@ -164,7 +167,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.0010956135
   m_TransitionOffset: 0.0013443505
   m_ExitTime: 0.9242466
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -211,13 +214,13 @@ AnimatorController:
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 0
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   - m_Name: isGrounded
     m_Type: 4
     m_DefaultFloat: 0
     m_DefaultInt: 0
     m_DefaultBool: 1
-    m_Controller: {fileID: 0}
+    m_Controller: {fileID: 9100000}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -276,7 +279,7 @@ AnimatorStateTransition:
   m_TransitionDuration: 0.021682858
   m_TransitionOffset: 0
   m_ExitTime: 0.9543211
-  m_HasExitTime: 1
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -301,10 +304,10 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0.011704445
   m_TransitionOffset: 0
-  m_ExitTime: 0.7580645
-  m_HasExitTime: 1
+  m_ExitTime: 0.9886731
+  m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
@@ -397,6 +400,9 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 6
     m_ConditionEvent: AnimState
+    m_EventTreshold: 0
+  - m_ConditionMode: 1
+    m_ConditionEvent: isGrounded
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -4362110617116365660}

@@ -1,7 +1,25 @@
 fileFormatVersion: 2
 guid: 7da60628c1ca640c89bd182d952c1a2c
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: 8968908856462073160
+    second: Slime-normal (1)_0
+  - first:
+      213: 2360571973243083842
+    second: Slime-normal (1)_1
+  - first:
+      213: -2909856273542514186
+    second: Slime-normal (1)_2
+  - first:
+      213: 3820811676160876949
+    second: Slime-normal (1)_3
+  - first:
+      213: 3607590398397405991
+    second: Slime-normal (1)_4
+  - first:
+      213: 60080681716767587
+    second: Slime-normal (1)_5
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -40,7 +58,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,7 +103,133 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Slime-normal (1)_0
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 73
+        width: 20
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84dd64ce517f77c70800000000000000
+      internalID: 8968908856462073160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-normal (1)_1
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 73
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c95ebe3bf62c020800000000000000
+      internalID: 2360571973243083842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-normal (1)_2
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 41
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f97e04e22d1e97d0800000000000000
+      internalID: -2909856273542514186
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-normal (1)_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 41
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 591eb37d9ff360530800000000000000
+      internalID: 3820811676160876949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-normal (1)_4
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 9
+        width: 24
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72b569f7a5cb01230800000000000000
+      internalID: 3607590398397405991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Slime-normal (1)_5
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 9
+        width: 21
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b579bcf0375d000800000000000000
+      internalID: 60080681716767587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []

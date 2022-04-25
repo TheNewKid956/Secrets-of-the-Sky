@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0.25f;
 
+    [SerializeField]
+    private float glidingSpeed;
+    private float _initialGravityScale;
+
     public Camera mainCamera;
 
     //float moveDirection = 0; // 0 is still, -1 is left, 1 is right
@@ -36,6 +40,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
+        _initialGravityScale = r2d.gravityScale;
 
 
         // If freezeRotation is enabled, the rotation in Z is not modified by the physics simulation.
@@ -64,13 +69,19 @@ public class PlayerController : MonoBehaviour
                 {
                     spriteRenderer.flipX = true;
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
-                    animator.SetInteger("AnimState", 1);
                 }
-                if(Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
+                if (Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
                     spriteRenderer.flipX = false;
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
+                }
+                if (isGrounded == true)
+                {
                     animator.SetInteger("AnimState", 1);
+                }
+                if(isGrounded == false)
+                {
+                    animator.SetInteger("AnimState", 2);
                 }
             }
             else if (Input.GetKeyUp(strafeKeys[i]))
@@ -78,7 +89,19 @@ public class PlayerController : MonoBehaviour
                 r2d.velocity = new Vector2(0 * maxSpeed, r2d.velocity.y);
                 animator.SetInteger("AnimState", 0);
             }
+        var glidingInput = Input.GetButton("Jump");
+
+        if (glidingInput && r2d.velocity.y <= 0)
+        {
+                r2d.gravityScale = 0;
+                r2d.velocity = new Vector2(r2d.velocity.x, glidingSpeed);
         }
+        else
+        {
+                r2d.gravityScale = _initialGravityScale; 
+        }
+        }
+
 
 
         // Jumping
@@ -95,14 +118,14 @@ public class PlayerController : MonoBehaviour
                 r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
                 r2d.gravityScale = gravityScale;
                 animator.SetInteger("AnimState", 2);
-                animator.SetBool("isGrounded", isGrounded);
             }
             else if (Input.GetKeyUp(jumpKeys[i]) && (isGrounded || isGrounded == false))
             {
-
                 r2d.gravityScale = gravityScale;
+                animator.SetInteger("AnimState", 0);
             }
         }
+        animator.SetBool("isGrounded", isGrounded);
 
         // Assigned Camera follows player
         if (mainCamera)
