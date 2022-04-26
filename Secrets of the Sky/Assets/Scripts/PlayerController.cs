@@ -12,7 +12,6 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float glidingSpeed;
-    private float _initialGravityScale;
 
     public Camera mainCamera;
 
@@ -40,7 +39,6 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         mainCollider = GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
-        _initialGravityScale = r2d.gravityScale;
 
 
         // If freezeRotation is enabled, the rotation in Z is not modified by the physics simulation.
@@ -89,20 +87,20 @@ public class PlayerController : MonoBehaviour
                 r2d.velocity = new Vector2(0 * maxSpeed, r2d.velocity.y);
                 animator.SetInteger("AnimState", 0);
             }
+        }
+
+        //Gliding Mechanics
         var glidingInput = Input.GetButton("Jump");
 
         if (glidingInput && r2d.velocity.y <= 0)
         {
-                r2d.gravityScale = 0;
-                r2d.velocity = new Vector2(r2d.velocity.x, glidingSpeed);
+            r2d.gravityScale = 0;
+            r2d.velocity = new Vector2(r2d.velocity.x, -glidingSpeed);
         }
         else
         {
-                r2d.gravityScale = _initialGravityScale; 
+            r2d.gravityScale = gravityScale;
         }
-        }
-
-
 
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
