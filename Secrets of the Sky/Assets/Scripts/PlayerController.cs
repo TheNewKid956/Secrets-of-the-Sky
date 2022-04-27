@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     public float maxSpeed = 3.4f;
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
-    public float glideGravityScale = 0.25f;
+    public float glideGravityScale = 0f;
 
     [SerializeField]
     private float glidingSpeed;
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
                 }
                 if (isGrounded == true)
                 {
+                    r2d.gravityScale = gravityScale;
                     animator.SetInteger("AnimState", 1);
                 }
                 if(isGrounded == false)
@@ -90,26 +91,25 @@ public class PlayerController : MonoBehaviour
         }
 
         //Gliding Mechanics
-        var glidingInput = Input.GetButton("Jump");
 
-        if (glidingInput && r2d.velocity.y <= 0)
-        {
-            r2d.gravityScale = 0;
-            r2d.velocity = new Vector2(r2d.velocity.x, -glidingSpeed);
-        }
-        else
-        {
-            r2d.gravityScale = gravityScale;
-        }
+        //if (glidingInput && r2d.velocity.y <= 0)
+        //{
+            //r2d.gravityScale = 0;
+            //r2d.velocity = new Vector2(r2d.velocity.x, -glidingSpeed);
+        //}
+        //else
+        //{
+            //r2d.gravityScale = gravityScale;
+        //}
 
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
-            //if (Input.GetKey(jumpKeys[i]) && isGrounded == false)
-            //{
-                //print("Trying to glide");
-                //r2d.gravityScale = glideGravityScale;
-            //}
+            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded == false)
+            {
+                r2d.gravityScale = glideGravityScale;
+                r2d.velocity = new Vector2(r2d.velocity.x, -1f);
+            }
             if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
             {
                 // Apply movement velocity in the y direction
