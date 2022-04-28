@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0f;
+    private float glideFallSpeed = -0.25f;
 
     [SerializeField]
     private float glidingSpeed;
+    private bool canGlide;
 
     public Camera mainCamera;
 
@@ -105,20 +107,24 @@ public class PlayerController : MonoBehaviour
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
-            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded == false)
+            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded == false && canGlide == true)
             {
+                //Gliding
                 r2d.gravityScale = glideGravityScale;
-                r2d.velocity = new Vector2(r2d.velocity.x, -1f);
+                r2d.velocity = new Vector2(r2d.velocity.x, glideFallSpeed);
             }
             if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
             {
+                //Jumping
                 // Apply movement velocity in the y direction
                 r2d.velocity = new Vector2(r2d.velocity.x, jumpHeight);
                 r2d.gravityScale = gravityScale;
                 animator.SetInteger("AnimState", 2);
+                StartCoroutine(CanGlide());
             }
             else if (Input.GetKeyUp(jumpKeys[i]) && (isGrounded || isGrounded == false))
             {
+                //Reset
                 r2d.gravityScale = gravityScale;
                 animator.SetInteger("AnimState", 0);
             }
@@ -157,5 +163,12 @@ public class PlayerController : MonoBehaviour
         }
         // Apply movement velocity in the x direction
         //r2d.velocity = new Vector2((moveDirection) * maxSpeed, r2d.velocity.y);
+    }
+
+    private IEnumerator CanGlide()
+    {
+        canGlide = false;
+        yield return new WaitForSeconds(0.25f);
+        canGlide = true;
     }
 }
