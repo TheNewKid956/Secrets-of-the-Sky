@@ -107,13 +107,14 @@ public class PlayerController : MonoBehaviour
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
-            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded == false && canGlide == true)
+            if (Input.GetKey(jumpKeys[i]) && isGrounded == false && canGlide == true)
             {
                 //Gliding
                 r2d.gravityScale = glideGravityScale;
                 r2d.velocity = new Vector2(r2d.velocity.x, glideFallSpeed);
+                animator.SetInteger("AnimState", 3);
             }
-            if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
+            else if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
             {
                 //Jumping
                 // Apply movement velocity in the y direction
