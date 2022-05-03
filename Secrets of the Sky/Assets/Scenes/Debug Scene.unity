@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 3.7
-  jumpHeight: 6.5
+  jumpHeight: 7.5
   gravityScale: 1.5
   glideGravityScale: 0
   glidingSpeed: 1
