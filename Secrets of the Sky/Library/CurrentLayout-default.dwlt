@@ -21,7 +21,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 642}
   m_MaxSize: {x: 10000, y: 10000}
   m_Maximized: 0
 --- !u!114 &2
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_MinSize: {x: 679, y: 492}
   m_MaxSize: {x: 14002, y: 14042}
   vertical: 0
-  controlID: 50
+  controlID: 79
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -151,7 +151,7 @@ MonoBehaviour:
     y: 0
     width: 2047
     height: 1013
-  m_MinSize: {x: 875, y: 300}
+  m_MinSize: {x: 875, y: 642}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &7
 MonoBehaviour:
@@ -220,7 +220,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 492}
   m_MaxSize: {x: 10001, y: 14042}
   vertical: 1
-  controlID: 51
+  controlID: 80
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -245,7 +245,7 @@ MonoBehaviour:
   m_MinSize: {x: 403, y: 221}
   m_MaxSize: {x: 8003, y: 4021}
   vertical: 0
-  controlID: 52
+  controlID: 81
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -289,7 +289,7 @@ MonoBehaviour:
   m_MinSize: {x: 600, y: 350}
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
-    m_Text: Plastic SCM
+    m_Text: 'Plastic SCM '
     m_Image: {fileID: 0}
     m_Tooltip: 
   m_Pos:
@@ -316,7 +316,7 @@ MonoBehaviour:
   m_MaxSize: {x: 2048, y: 2048}
   m_TitleContent:
     m_Text: Asset Store
-    m_Image: {fileID: -7444545952099596278, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -8693916549880196297, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -342,7 +342,7 @@ MonoBehaviour:
   m_MaxSize: {x: 10000, y: 10000}
   m_TitleContent:
     m_Text: Project
-    m_Image: {fileID: -5179483145760003458, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -5467254957812901981, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -365,11 +365,11 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: /Users/dtraskevich/Documents/GitHub/Secrets-of-the-Sky/Secrets
     of the Sky
@@ -377,8 +377,8 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 4c3d0000
-    m_LastClickedID: 15692
+    m_SelectedIDs: 563d0000
+    m_LastClickedID: 15702
     m_ExpandedIDs: 000000004c3d000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -479,7 +479,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Inspector
-    m_Image: {fileID: -440750813802333266, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -2667387946076563598, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -517,7 +517,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Hierarchy
-    m_Image: {fileID: -3734745235275155857, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 7966133145522015247, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -532,7 +532,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 64fbffff
+      m_ExpandedIDs: 64fbffff483c0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Scene
-    m_Image: {fileID: 8634526014445323508, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: 2593428753322112591, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -592,9 +592,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.047792032, y: 2.6389184, z: -31570.572}
+    m_Target: {x: -0.07902935, y: -0.18940565, z: -3526.3386}
     speed: 2
-    m_Value: {x: 0.04288331, y: 2.6357877, z: -31570.572}
+    m_Value: {x: -0.07902935, y: -0.18940565, z: -3526.3386}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -644,9 +644,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 13.857184
+    m_Target: 5.5197334
     speed: 2
-    m_Value: 13.836429
+    m_Value: 5.49366
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -687,7 +687,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Game
-    m_Image: {fileID: 4621777727084837110, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -6423792434712278376, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:
@@ -720,10 +720,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -179
-    m_HBaseRangeMax: 179
-    m_VBaseRangeMin: -134.25
-    m_VBaseRangeMax: 134.25
+    m_HBaseRangeMin: -372
+    m_HBaseRangeMax: 372
+    m_VBaseRangeMin: -279
+    m_VBaseRangeMax: 279
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -740,24 +740,24 @@ MonoBehaviour:
     m_DrawArea:
       serializedVersion: 2
       x: 0
-      y: 21
+      y: 0
       width: 1074
-      height: 537
-    m_Scale: {x: 2, y: 2}
-    m_Translation: {x: 537, y: 268.5}
+      height: 558
+    m_Scale: {x: 1, y: 1}
+    m_Translation: {x: 537, y: 279}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -268.5
-      y: -134.25
-      width: 537
-      height: 268.5
+      x: -537
+      y: -279
+      width: 1074
+      height: 558
     m_MinimalGUI: 1
-  m_defaultScale: 2
-  m_LastWindowPixelSize: {x: 2148, y: 1116}
+  m_defaultScale: 1
+  m_LastWindowPixelSize: {x: 1074, y: 558}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
   m_LowResolutionForAspectRatios: 01000000000000000000
@@ -779,7 +779,7 @@ MonoBehaviour:
   m_MaxSize: {x: 4000, y: 4000}
   m_TitleContent:
     m_Text: Console
-    m_Image: {fileID: -4950941429401207979, guid: 0000000000000000d000000000000000,
+    m_Image: {fileID: -4327648978806127646, guid: 0000000000000000d000000000000000,
       type: 0}
     m_Tooltip: 
   m_Pos:

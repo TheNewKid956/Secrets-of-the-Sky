@@ -215,7 +215,7 @@ MonoBehaviour:
   gravityScale: 1.5
   glideGravityScale: 0
   glidingSpeed: 1
-  mainCamera: {fileID: 0}
+  mainCamera: {fileID: 1900473070}
 --- !u!212 &574962832
 SpriteRenderer:
   m_ObjectHideFlags: 0
