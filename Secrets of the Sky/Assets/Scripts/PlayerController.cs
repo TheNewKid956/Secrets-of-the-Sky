@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0f;
-    private float glideFallSpeed = -0.25f;
+    public float glideFallSpeed = -0.25f;
 
     [SerializeField]
     private float glidingSpeed;
@@ -63,16 +63,22 @@ public class PlayerController : MonoBehaviour
         // Movement controls
         for (int i = 0; i < strafeKeys.Length; i++)
         {
-            if (Input.GetKey(strafeKeys[i]) && (isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f))
+            if (Input.GetKey(strafeKeys[i]) && ((isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f) && PlayerStats.canMove == true))
             {
                 if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
-                    spriteRenderer.flipX = true;
+                    if (PlayerStats.canRotate)
+                    {
+                        spriteRenderer.flipX = true;
+                    }
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
                 }
                 if (Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
-                    spriteRenderer.flipX = false;
+                    if (PlayerStats.canRotate)
+                    {
+                        spriteRenderer.flipX = false;
+                    }
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
                 }
                 if (isGrounded == true)

@@ -8,6 +8,19 @@ public class PlayerStats : MonoBehaviour
     public static int health = 1;
     public static bool canMove = true;
     public static bool canRotate = true;
+    public static bool hasDied = false;
+    public static int timesChecked = 0;
+
+    public GameOver go = new GameOver();
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Enemy"))
+        {
+            health--;
+            print(health);
+        }
+    }
 
     void Update()
     {
@@ -15,23 +28,12 @@ public class PlayerStats : MonoBehaviour
         {
             canMove = false;
             canRotate = false;
-            StartCoroutine(Death());
+            hasDied = true;
         }
-    }
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("Enemy"))
+        if(hasDied == true && timesChecked <= 0)
         {
-            health--;
+            timesChecked++;
+            go.Toggle();
         }
-    }
-
-    private IEnumerator Death()
-    {
-        yield return new WaitForSeconds(1f);
-        health = 5;
-        SceneManager.LoadScene(0);
-        canMove = true;
-        canRotate = true;
     }
 }
