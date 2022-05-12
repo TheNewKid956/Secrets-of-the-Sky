@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0f;
-    public float glideFallSpeed = -0.25f;
+    private float glideFallSpeed = -0.25f;
 
     [SerializeField]
     private float glidingSpeed;
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         // Assigned Camera follows player
         if (mainCamera)
         {
-            mainCamera.transform.position = new Vector3(t.position.x, cameraPos.y, cameraPos.z);
+            mainCamera.transform.position = new Vector3(t.position.x, t.position.y, cameraPos.z);
         }
     }
 

@@ -10,6 +10,7 @@ public class GameOver : MonoBehaviour
 
     public void Toggle()
     {
+        print("has toggled");
         ui.SetActive(!ui.activeSelf);
 
         if (ui.activeSelf)
@@ -25,13 +26,11 @@ public class GameOver : MonoBehaviour
     public void Retry()
     {
         Toggle();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PlayerStats.health = 1;
         PlayerStats.canMove = true;
         PlayerStats.canRotate = true;
+        PlayerStats.hasDied = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PlayerStats.timesChecked = 0;
-
     }
 
     public void Menu()

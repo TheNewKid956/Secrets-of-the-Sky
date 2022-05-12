@@ -225,8 +225,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02756025, y: 0.009461286}
-  m_Size: {x: 0.1924025, y: 0.1612339}
+  m_Offset: {x: -0.028736312, y: 0.008120857}
+  m_Size: {x: 0.21384957, y: 0.16391669}
   m_Direction: 1
 --- !u!212 &111318519
 SpriteRenderer:
@@ -404,8 +404,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 788117485}
   - {fileID: 834963981}
+  - {fileID: 788117485}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -831,7 +831,7 @@ RectTransform:
   - {fileID: 1507099641}
   - {fileID: 1434742696}
   m_Father: {fileID: 296681894}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -903,7 +903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &834963981
 RectTransform:
   m_ObjectHideFlags: 0
@@ -920,7 +920,7 @@ RectTransform:
   - {fileID: 1869495559}
   - {fileID: 1485998303}
   m_Father: {fileID: 296681894}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -939,7 +939,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d80b37de31bd7d6478386f84de25d291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ui: {fileID: 0}
+  ui: {fileID: 834963980}
 --- !u!1 &879026904
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,31 +9,35 @@ public class PlayerStats : MonoBehaviour
     public static bool canMove = true;
     public static bool canRotate = true;
     public static bool hasDied = false;
-    public static int timesChecked = 0;
 
-    public GameOver go = new GameOver();
+    public GameOver go;
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Enemy"))
+        if (other.gameObject.CompareTag("Enemy") && hasDied == false)
         {
             health--;
-            print(health);
+            hadDied();
+            if (health <= 0)
+            {
+                canMove = false;
+                canRotate = false;
+                hasDied = true;
+            }
+            if (hasDied == true)
+            {
+                print("has called");
+                go = new GameOver();
+                go.Toggle();
+            }
         }
     }
 
     void Update()
     {
-        if (health <= 0)
-        {
-            canMove = false;
-            canRotate = false;
-            hasDied = true;
-        }
-        if(hasDied == true && timesChecked <= 0)
-        {
-            timesChecked++;
-            go.Toggle();
-        }
+    }
+
+    public void hadDied()
+    {
     }
 }
