@@ -10,7 +10,7 @@ public class PlayerStats : MonoBehaviour
     public static bool canRotate = true;
     public static bool hasDied = false;
 
-    public GameOver go;
+    public GameOver go = new GameOver();
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -26,8 +26,6 @@ public class PlayerStats : MonoBehaviour
             }
             if (hasDied == true)
             {
-                print("has called");
-                go = new GameOver();
                 go.Toggle();
             }
         }
