@@ -98,29 +98,17 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        //Gliding Mechanics
-
-        //if (glidingInput && r2d.velocity.y <= 0)
-        //{
-            //r2d.gravityScale = 0;
-            //r2d.velocity = new Vector2(r2d.velocity.x, -glidingSpeed);
-        //}
-        //else
-        //{
-            //r2d.gravityScale = gravityScale;
-        //}
-
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
-            if (Input.GetKey(jumpKeys[i]) && isGrounded == false && canGlide == true)
+            if (Input.GetKey(jumpKeys[i]) && isGrounded == false && canGlide == true && PlayerStats.canMove == true)
             {
                 //Gliding
                 r2d.gravityScale = glideGravityScale;
                 r2d.velocity = new Vector2(r2d.velocity.x, glideFallSpeed);
                 animator.SetInteger("AnimState", 3);
             }
-            else if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
+            else if (Input.GetKeyDown(jumpKeys[i]) && isGrounded && PlayerStats.canMove)
             {
                 //Jumping
                 // Apply movement velocity in the y direction
