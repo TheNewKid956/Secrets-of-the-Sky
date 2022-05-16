@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     public float jumpHeight = 6.5f;
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0f;
-    private float glideFallSpeed = -0.25f;
+    public float glideFallSpeed = -0.25f;
 
     [SerializeField]
     private float glidingSpeed;
@@ -63,22 +63,16 @@ public class PlayerController : MonoBehaviour
         // Movement controls
         for (int i = 0; i < strafeKeys.Length; i++)
         {
-            if (Input.GetKey(strafeKeys[i]) && ((isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f) && PlayerStats.canMove == true))
+            if (Input.GetKey(strafeKeys[i]) && ((isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f)))
             {
                 if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
-                    if (PlayerStats.canRotate)
-                    {
-                        spriteRenderer.flipX = true;
-                    }
+                    spriteRenderer.flipX = true;
                     r2d.velocity = new Vector2(-1 * maxSpeed, r2d.velocity.y);
                 }
                 if (Input.GetKey(strafeKeys[2]) || Input.GetKey(strafeKeys[3]))
                 {
-                    if (PlayerStats.canRotate)
-                    {
-                        spriteRenderer.flipX = false;
-                    }
+                    spriteRenderer.flipX = false;
                     r2d.velocity = new Vector2(maxSpeed, r2d.velocity.y);
                 }
                 if (isGrounded == true)
@@ -101,14 +95,14 @@ public class PlayerController : MonoBehaviour
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {
-            if (Input.GetKey(jumpKeys[i]) && isGrounded == false && canGlide == true && PlayerStats.canMove == true)
+            if (Input.GetKey(jumpKeys[i]) && isGrounded == false && canGlide == true)
             {
                 //Gliding
                 r2d.gravityScale = glideGravityScale;
                 r2d.velocity = new Vector2(r2d.velocity.x, glideFallSpeed);
                 animator.SetInteger("AnimState", 3);
             }
-            else if (Input.GetKeyDown(jumpKeys[i]) && isGrounded && PlayerStats.canMove)
+            else if (Input.GetKeyDown(jumpKeys[i]) && isGrounded)
             {
                 //Jumping
                 // Apply movement velocity in the y direction
