@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public float gravityScale = 1.5f;
     public float glideGravityScale = 0f;
     public float glideFallSpeed = -0.25f;
+    private AudioSource source;
 
     [SerializeField]
     private float glidingSpeed;
@@ -65,6 +66,7 @@ public class PlayerController : MonoBehaviour
         {
             if (Input.GetKey(strafeKeys[i]) && ((isGrounded || !isGrounded || Mathf.Abs(r2d.velocity.x) > 0.01f)))
             {
+               
                 if (Input.GetKey(strafeKeys[0]) || Input.GetKey(strafeKeys[1]))
                 {
                     spriteRenderer.flipX = true;
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
                 {
                     animator.SetInteger("AnimState", 2);
                 }
+               
             }
             else if (Input.GetKeyUp(strafeKeys[i]))
             {
@@ -91,7 +94,7 @@ public class PlayerController : MonoBehaviour
                 animator.SetInteger("AnimState", 0);
             }
         }
-
+        
         // Jumping
         for (int i = 0; i < jumpKeys.Length; i++)
         {

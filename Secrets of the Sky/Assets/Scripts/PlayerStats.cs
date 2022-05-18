@@ -7,7 +7,7 @@ public class PlayerStats : MonoBehaviour
 {
     public static int health = 1;
     public static bool hasDied = false;
-
+    [SerializeField] private AudioSource deathSoundEffect;
     public GameOver go = new GameOver();
 
     void OnCollisionEnter2D(Collision2D other)
@@ -21,6 +21,7 @@ public class PlayerStats : MonoBehaviour
             }
             if (hasDied == true)
             {
+                deathSoundEffect.Play();
                 go.Toggle();
             }
         }
